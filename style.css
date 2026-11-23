@@ -1,384 +1,719 @@
 /* ==========================================================================
+   COLLEGE STUDENT DASHBOARD - STYLESHEET
+   Author: Aarav Sharma (B.Tech CSE - 1st Year)
+   Description: Clean, modern, responsive student dashboard using pure HTML & CSS Flexbox.
+   Structure:
+     1. RESET AND BASE STYLES
+     2. LAYOUT STYLES (Sidebar, Topbar, Main Content, Footer)
+     3. COMPONENT STYLES (Cards, Tables, Badges, Lists)
+     4. RESPONSIVE STYLES (Single @media max-width: 768px block)
+   ========================================================================== */
+
+
+/* ==========================================================================
    1. RESET AND BASE STYLES
-   Basic box-sizing, margin resets, font settings, and general defaults.
+   Explanation: We reset browser margins and paddings to 0 and use 
+   box-sizing: border-box so padding doesn't increase an element's total width.
    ========================================================================== */
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /* Smooth scrolling when clicking sidebar anchor links */
+  scroll-behavior: smooth;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f1f5f9;
-    color: #1e293b;
-    line-height: 1.6;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: #f1f5f9; /* Slate 100 - soft modern background */
+  color: #1e293b;            /* Slate 800 - high contrast, readable text */
+  line-height: 1.6;
 }
 
-/* Base typography */
-h1 {
-    font-size: 1.8rem;
-    font-weight: 700;
+/* Base Headings & Links */
+h1, h2, h3, h4 {
+  color: #0f172a;
+  line-height: 1.3;
 }
 
-h2 {
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin-bottom: 12px;
-    color: #1e3a8a;
-}
-
-h3 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 8px;
-    color: #1e293b;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 
 /* ==========================================================================
-   2. LAYOUT STYLES
-   Header, main page container, and two-column flex layout for questions/sidebar.
+   2. LAYOUT STYLES (FLEXBOX ARCHITECTURE)
+   Explanation: The dashboard uses a two-column Flexbox layout.
+   Left column is the fixed-width sidebar, and the right column flexes to fill.
    ========================================================================== */
 
-/* Page Header */
-.exam-header {
-    background-color: #1e3a8a;
-    color: #ffffff;
-    padding: 24px 20px;
-    text-align: center;
-    border-bottom: 4px solid #3b82f6;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+/* Main outer wrapper holding Sidebar + Main Content */
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
 }
 
-.sub-header {
-    font-size: 0.95rem;
-    color: #bfdbfe;
-    margin-top: 6px;
+/* Left Navigation Sidebar */
+.sidebar {
+  width: 260px;
+  background-color: #0f172a; /* Slate 900 - dark navy */
+  color: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0; /* Prevents sidebar from shrinking on smaller screens */
+  padding: 24px 16px;
+  border-right: 1px solid #1e293b;
 }
 
-/* Main Content Wrapper */
-.main-container {
-    max-width: 1000px;
-    margin: 24px auto;
-    padding: 0 16px;
+/* Sidebar Brand Logo Header */
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 12px 24px 12px;
+  border-bottom: 1px solid #1e293b;
+  margin-bottom: 24px;
 }
 
-/* Two-column exam layout using Flexbox */
-.exam-layout {
-    display: flex;
-    flex-direction: row;
-    gap: 24px;
-    align-items: flex-start;
+.brand-icon {
+  font-size: 28px;
 }
 
-/* Questions Column takes available space */
-.questions-area {
-    flex: 3;
+.brand-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.5px;
 }
 
-/* Palette Side Column has fixed proportions */
-.palette-aside {
-    flex: 1;
+/* Sidebar Navigation List */
+.sidebar-nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
-/* Page Footer */
-.exam-footer {
-    background-color: #0f172a;
-    color: #94a3b8;
-    text-align: center;
-    padding: 24px 16px;
-    margin-top: 40px;
-    font-size: 0.9rem;
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  color: #94a3b8; /* Slate 400 */
+  font-size: 15px;
+  font-weight: 500;
+  /* Hover effect for beginner CSS */
+  transition: background-color 0.2s, color 0.2s;
 }
 
-.footer-note {
-    font-size: 0.8rem;
-    color: #64748b;
-    margin-top: 4px;
+.nav-link:hover {
+  background-color: #1e293b;
+  color: #38bdf8; /* Sky blue */
+}
+
+.nav-link.active {
+  background-color: #2563eb; /* Primary Royal Blue */
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Sidebar Status Badge at the bottom */
+.sidebar-status {
+  margin-top: auto; /* Pushes card to the bottom of the sidebar */
+  background-color: #1e293b;
+  border-radius: 8px;
+  padding: 14px;
+  text-align: center;
+}
+
+.status-label {
+  font-size: 12px;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.status-badge {
+  font-size: 14px;
+  font-weight: 600;
+  color: #4ade80; /* Light emerald green */
+}
+
+/* Right Side Wrapper */
+.main-wrapper {
+  flex: 1; /* Fills remaining horizontal space */
+  display: flex;
+  flex-direction: column;
+  min-width: 0; /* Prevents overflow clipping in flex children */
+}
+
+/* Top Header Bar */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 18px 32px;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.topbar-welcome h1 {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.welcome-text {
+  font-size: 14px;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+/* Student Profile Snippet in Topbar */
+.topbar-profile {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.avatar-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #2563eb;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+  box-shadow: 0 2px 4px rgba(37, 99, 235, 0.25);
+}
+
+.topbar-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.student-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.student-role {
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* Main Dashboard Body Container */
+.main-content {
+  padding: 30px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Section Header Typography */
+.dashboard-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.section-header h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.section-header p {
+  font-size: 14px;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+/* Two Column Flex Row for Notifications & Announcements */
+.updates-row {
+  display: flex;
+  gap: 24px;
+}
+
+.updates-column {
+  flex: 1; /* Equal 50-50 width on desktop */
+}
+
+/* Footer */
+.footer {
+  background-color: #ffffff;
+  padding: 22px 32px;
+  text-align: center;
+  border-top: 1px solid #e2e8f0;
+  margin-top: auto;
+  font-size: 14px;
+  color: #64748b;
+}
+
+.footer-subtext {
+  font-size: 12px;
+  color: #94a3b8;
+  margin-top: 4px;
 }
 
 
 /* ==========================================================================
    3. COMPONENT STYLES
-   Reusable UI blocks: info box, instructions, timer, questions, palette, submit.
+   Explanation: Individual modular UI components like Cards, Data Tables,
+   Attendance Bars, Status Badges, and Notification Items.
    ========================================================================== */
 
-/* --- Student Information Section --- */
-.student-info-section {
-    background-color: #ffffff;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
-    border: 1px solid #cbd5e1;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+/* --------------------------------------------------
+   Profile Card Component
+   -------------------------------------------------- */
+.profile-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  display: flex;
+  align-items: center;
+  gap: 28px;
 }
 
-.info-grid-flex {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    justify-content: space-between;
+.profile-avatar-large {
+  width: 90px;
+  height: 90px;
+  background-color: #eff6ff;
+  border: 3px solid #bfdbfe;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.avatar-emoji {
+  font-size: 46px;
+}
+
+/* Profile Info Flex Grid (Pure Flexbox, No CSS Grid) */
+.profile-info-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 24px;
+  flex: 1;
 }
 
 .info-item {
-    flex: 1 1 170px;
-    background-color: #f8fafc;
-    padding: 10px 14px;
-    border-radius: 6px;
-    border-left: 4px solid #2563eb;
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 calc(33.333% - 24px);
+  min-width: 180px;
 }
 
 .info-label {
-    font-size: 0.8rem;
-    color: #64748b;
-    font-weight: 600;
-    text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #64748b;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
 }
 
 .info-value {
-    font-size: 0.95rem;
-    color: #0f172a;
-    font-weight: 600;
-    margin-top: 2px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #0f172a;
 }
 
-/* --- Instructions Section --- */
-.instructions-section {
-    background-color: #ffffff;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
-    border: 1px solid #cbd5e1;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+.status-good {
+  color: #16a34a; /* Green */
 }
 
-.instructions-list {
-    padding-left: 20px;
-    color: #334155;
+/* --------------------------------------------------
+   Data Tables & Wrapper (Attendance, Marks, Timetable)
+   -------------------------------------------------- */
+.table-wrapper {
+  background-color: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  /* Allows smooth horizontal scrolling on mobile screens */
+  overflow-x: auto;
 }
 
-.instructions-list li {
-    margin-bottom: 6px;
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 14px;
 }
 
-/* --- Timer Section (Display Only) --- */
-.timer-section {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+.data-table thead tr {
+  background-color: #f8fafc;
+  border-bottom: 2px solid #e2e8f0;
 }
 
-.timer-box {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background-color: #fef2f2;
-    border: 2px solid #ef4444;
-    color: #b91c1c;
-    padding: 10px 24px;
-    border-radius: 30px;
-    font-size: 1.15rem;
-    font-weight: 700;
-    box-shadow: 0 2px 6px rgba(239, 68, 68, 0.15);
+.data-table th {
+  padding: 14px 18px;
+  font-weight: 600;
+  color: #475569;
+  white-space: nowrap;
 }
 
-.timer-icon {
-    font-size: 1.25rem;
+.data-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #334155;
+  white-space: nowrap;
 }
 
-/* --- Question Card (Fieldset & Legend) --- */
-.question-card {
-    background-color: #ffffff;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 18px;
-    border: 1px solid #cbd5e1;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+.data-table tbody tr:last-child td {
+  border-bottom: none;
 }
 
-.question-number {
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: #1e3a8a;
-    padding: 0 8px;
+/* Row Hover Effect */
+.data-table tbody tr:hover {
+  background-color: #f8fafc;
 }
 
-.question-text {
-    font-weight: 600;
-    font-size: 1rem;
-    color: #0f172a;
-    margin-bottom: 14px;
+/* Specific styling for Timetable */
+.timetable-table th small {
+  font-size: 11px;
+  color: #64748b;
+  font-weight: 400;
 }
 
-/* --- Options Group & Radio Items --- */
-.options-group {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.timetable-table td:first-child {
+  background-color: #f8fafc;
+  color: #0f172a;
 }
 
-.option-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 10px 14px;
-    border: 1px solid #e2e8f0;
-    border-radius: 6px;
-    background-color: #f8fafc;
-    cursor: pointer;
-    transition: background-color 0.2s, border-color 0.2s;
+/* --------------------------------------------------
+   Attendance Progress Bar Component
+   -------------------------------------------------- */
+.attendance-bar-bg {
+  width: 140px;
+  height: 10px;
+  background-color: #e2e8f0;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-.option-item:hover {
-    background-color: #eff6ff;
-    border-color: #93c5fd;
+.attendance-bar-fill {
+  height: 100%;
+  background-color: #2563eb; /* Primary Blue fill */
+  border-radius: 10px;
 }
 
-.option-item input[type="radio"] {
-    cursor: pointer;
-    width: 18px;
-    height: 18px;
+/* --------------------------------------------------
+   Grade Badges
+   -------------------------------------------------- */
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
 }
 
-.option-item label {
-    cursor: pointer;
-    width: 100%;
-    color: #334155;
-    font-size: 0.95rem;
+.grade-o {
+  background-color: #dcfce7;
+  color: #15803d; /* Green */
 }
 
-/* --- Question Number Panel (Side Aside) --- */
-.palette-card {
-    background-color: #ffffff;
-    border: 1px solid #cbd5e1;
-    border-radius: 8px;
-    padding: 18px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+.grade-aplus {
+  background-color: #eff6ff;
+  color: #1d4ed8; /* Blue */
 }
 
-.palette-subtitle {
-    font-size: 0.85rem;
-    color: #64748b;
-    margin-bottom: 12px;
+.grade-a {
+  background-color: #fef3c7;
+  color: #b45309; /* Amber */
 }
 
-.palette-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 16px;
+/* --------------------------------------------------
+   Enrolled Subject Cards (Flexbox Wrapping)
+   -------------------------------------------------- */
+.subjects-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
-.palette-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 42px;
-    height: 42px;
-    background-color: #e2e8f0;
-    color: #1e293b;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 0.9rem;
-    border-radius: 6px;
-    border: 1px solid #cbd5e1;
-    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+.subject-card {
+  flex: 1 1 calc(33.333% - 20px);
+  min-width: 260px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 22px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* Simple hover transition */
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.palette-btn:hover {
-    background-color: #2563eb;
-    color: #ffffff;
-    border-color: #1d4ed8;
+.subject-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.07);
 }
 
-.palette-info {
-    border-top: 1px solid #e2e8f0;
-    padding-top: 12px;
-    font-size: 0.85rem;
-    color: #64748b;
+.subject-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.palette-info p {
-    margin-bottom: 4px;
+.subject-badge {
+  background-color: #e0f2fe;
+  color: #0369a1;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 6px;
 }
 
-/* --- Submission Area --- */
-.submission-section {
-    margin-top: 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 14px;
+.subject-code {
+  font-size: 13px;
+  font-weight: 700;
+  color: #64748b;
 }
 
-.review-message-box {
-    width: 100%;
-    background-color: #fffbeb;
-    border: 1px solid #fde68a;
-    color: #92400e;
-    padding: 12px 16px;
-    border-radius: 6px;
-    text-align: center;
-    font-size: 0.95rem;
+.subject-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
 }
 
-.submit-btn {
-    background-color: #16a34a;
-    color: #ffffff;
-    border: none;
-    padding: 12px 36px;
-    font-size: 1.05rem;
-    font-weight: 700;
-    border-radius: 6px;
-    cursor: pointer;
-    box-shadow: 0 3px 6px rgba(22, 163, 74, 0.25);
-    transition: background-color 0.2s;
+.subject-faculty {
+  font-size: 13px;
+  color: #475569;
 }
 
-.submit-btn:hover {
-    background-color: #15803d;
+.subject-desc {
+  font-size: 13px;
+  color: #64748b;
+  margin-top: auto; /* Aligns description neatly at the bottom */
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------
+   Notifications List Component
+   -------------------------------------------------- */
+.notifications-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.notification-item {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 16px;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  transition: background-color 0.2s;
+}
+
+.notification-item:hover {
+  background-color: #f8fafc;
+}
+
+.item-icon {
+  font-size: 22px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.item-content {
+  flex: 1;
+}
+
+.item-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 2px;
+}
+
+.item-desc {
+  font-size: 13px;
+  color: #64748b;
+}
+
+.item-time {
+  display: inline-block;
+  font-size: 11px;
+  color: #94a3b8;
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+/* --------------------------------------------------
+   Announcements List Component
+   -------------------------------------------------- */
+.announcements-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.announcement-item {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 16px;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: background-color 0.2s;
+}
+
+.announcement-item:hover {
+  background-color: #f8fafc;
+}
+
+.announcement-date {
+  width: 52px;
+  height: 52px;
+  background-color: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.date-day {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1d4ed8;
+  line-height: 1;
+}
+
+.date-month {
+  font-size: 10px;
+  font-weight: 700;
+  color: #3b82f6;
+  text-transform: uppercase;
+}
+
+.announcement-content {
+  flex: 1;
 }
 
 
 /* ==========================================================================
-   4. RESPONSIVE STYLES
-   Single media query for tablets and mobile screens (768px or smaller).
-   Stacks the side panel below questions and makes items full-width.
+   4. RESPONSIVE DESIGN (MOBILE & TABLET SCREENS)
+   Explanation: ONE media query block for max-width: 768px as requested.
+   When the screen is narrower than 768px (tablets & phones), the layout
+   stacks vertically, full width, and tables scroll sideways inside .table-wrapper.
    ========================================================================== */
 
 @media (max-width: 768px) {
-    /* Stack side panel below questions */
-    .exam-layout {
-        flex-direction: column;
-    }
+  /* 1. Stack the main dashboard container vertically */
+  .dashboard-container {
+    flex-direction: column;
+  }
 
-    /* Expand sidebar to full width */
-    .palette-aside {
-        width: 100%;
-    }
+  /* 2. Sidebar takes full width at the top */
+  .sidebar {
+    width: 100%;
+    padding: 16px;
+  }
 
-    /* Stack student info items vertically */
-    .info-grid-flex {
-        flex-direction: column;
-    }
+  .sidebar-brand {
+    margin-bottom: 16px;
+    padding-bottom: 14px;
+  }
 
-    /* Make submit button full width for easy tapping */
-    .submit-btn {
-        width: 100%;
-    }
+  .sidebar-nav ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
 
-    /* Adjust header font size for smaller screens */
-    h1 {
-        font-size: 1.4rem;
-    }
+  .nav-link {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
 
-    /* Adjust timer box size */
-    .timer-box {
-        font-size: 1rem;
-        padding: 8px 18px;
-    }
+  .sidebar-status {
+    display: none; /* Hide status badge on mobile to save vertical space */
+  }
+
+  /* 3. Topbar stacks its content */
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 18px 20px;
+  }
+
+  .topbar-profile {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  /* 4. Main content reduces padding */
+  .main-content {
+    padding: 20px 16px;
+    gap: 24px;
+  }
+
+  /* 5. Profile card stacks avatar and details vertically */
+  .profile-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 18px;
+  }
+
+  .profile-info-grid {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .info-item {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  /* 6. Subject cards take full width */
+  .subject-card {
+    flex: 1 1 100%;
+    min-width: 100%;
+  }
+
+  /* 7. Stack Notifications and Announcements vertically */
+  .updates-row {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  /* 8. Ensure attendance progress bar stays visible inside table */
+  .attendance-bar-bg {
+    width: 100px;
+  }
+
+  /* 9. Footer padding adjustment */
+  .footer {
+    padding: 18px 16px;
+  }
 }

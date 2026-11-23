@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Student Dashboard</title>
+  <!-- Link to external CSS stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ========================================== -->
+  <!-- MAIN LAYOUT CONTAINER (FLEXBOX PARENT)     -->
+  <!-- ========================================== -->
+  <div class="dashboard-container">
+
+    <!-- ========================================== -->
+    <!-- 1. SIDEBAR (LEFT NAVIGATION MENU)          -->
+    <!-- ========================================== -->
+    <aside class="sidebar">
+      <!-- Portal Brand Logo & Title -->
+      <div class="sidebar-brand">
+        <span class="brand-icon">🎓</span>
+        <h2 class="brand-name">CampusPortal</h2>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="sidebar-nav">
+        <ul>
+          <li><a href="#profile" class="nav-link active">👤 Profile</a></li>
+          <li><a href="#attendance" class="nav-link">📊 Attendance</a></li>
+          <li><a href="#marks" class="nav-link">📝 Marks</a></li>
+          <li><a href="#timetable" class="nav-link">📅 Timetable</a></li>
+          <li><a href="#subjects" class="nav-link">📚 Subjects</a></li>
+          <li><a href="#notifications" class="nav-link">🔔 Notifications</a></li>
+          <li><a href="#announcements" class="nav-link">📢 Announcements</a></li>
+        </ul>
+      </nav>
+
+      <!-- Sidebar Status Card -->
+      <div class="sidebar-status">
+        <p class="status-label">Semester Status</p>
+        <p class="status-badge">🟢 Active - Sem 1</p>
+      </div>
+    </aside>
+
+    <!-- ========================================== -->
+    <!-- RIGHT SIDE CONTENT WRAPPER                 -->
+    <!-- ========================================== -->
+    <div class="main-wrapper">
+
+      <!-- ========================================== -->
+      <!-- 2. TOP HEADER BAR                          -->
+      <!-- ========================================== -->
+      <header class="topbar">
+        <div class="topbar-welcome">
+          <h1>Student Dashboard</h1>
+          <p class="welcome-text">Welcome back, <strong>Aarav Sharma</strong>! Here is your daily overview.</p>
+        </div>
+
+        <div class="topbar-profile">
+          <div class="avatar-circle">AS</div>
+          <div class="topbar-details">
+            <span class="student-name">Aarav Sharma</span>
+            <span class="student-role">B.Tech CSE - 1st Year</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- ========================================== -->
+      <!-- 3. MAIN DASHBOARD CONTENT                  -->
+      <!-- ========================================== -->
+      <main class="main-content">
+
+        <!-- ========================================== -->
+        <!-- SECTION 1: STUDENT PROFILE CARD            -->
+        <!-- ========================================== -->
+        <section id="profile" class="dashboard-section">
+          <div class="section-header">
+            <h2>Student Profile</h2>
+            <p>Personal and academic identification details</p>
+          </div>
+
+          <div class="profile-card">
+            <!-- Student Avatar Badge -->
+            <div class="profile-avatar-large">
+              <span class="avatar-emoji">👨‍🎓</span>
+            </div>
+
+            <!-- Student Detailed Information -->
+            <div class="profile-info-grid">
+              <div class="info-item">
+                <span class="info-label">Full Name</span>
+                <span class="info-value">Aarav Sharma</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Roll Number</span>
+                <span class="info-value">24CSE042</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Branch</span>
+                <span class="info-value">Computer Science &amp; Engineering</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Current Year</span>
+                <span class="info-value">1st Year (Semester 1, 2024–2028)</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">College Email</span>
+                <span class="info-value">aarav.sharma24@college.edu</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Academic Status</span>
+                <span class="info-value status-good">Good Standing</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- SECTION 2: ATTENDANCE TRACKER              -->
+        <!-- ========================================== -->
+        <section id="attendance" class="dashboard-section">
+          <div class="section-header">
+            <h2>Attendance Record</h2>
+            <p>Minimum 75% attendance required for semester examinations</p>
+          </div>
+
+          <!-- Table Wrapper ensures horizontal scrolling on small screens -->
+          <div class="table-wrapper">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Subject</th>
+                  <th>Classes Held</th>
+                  <th>Classes Attended</th>
+                  <th>Percentage</th>
+                  <th>Visual Progress Bar</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Programming in C (CS101)</td>
+                  <td>40</td>
+                  <td>36</td>
+                  <td><strong>90%</strong></td>
+                  <td>
+                    <div class="attendance-bar-bg">
+                      <!-- Note for Viva: Inline style is used here ONLY for the width percentage because each subject has a unique dynamic percentage value, while all styling rules remain in style.css -->
+                      <div class="attendance-bar-fill" style="width: 90%;"></div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Mathematics - I (MA101)</td>
+                  <td>45</td>
+                  <td>38</td>
+                  <td><strong>84%</strong></td>
+                  <td>
+                    <div class="attendance-bar-bg">
+                      <!-- Inline style represents the 84% width of the attendance bar -->
+                      <div class="attendance-bar-fill" style="width: 84%;"></div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Engineering Physics (PH101)</td>
+                  <td>36</td>
+                  <td>32</td>
+                  <td><strong>89%</strong></td>
+                  <td>
+                    <div class="attendance-bar-bg">
+                      <!-- Inline style represents the 89% width of the attendance bar -->
+                      <div class="attendance-bar-fill" style="width: 89%;"></div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Basic Electrical Engg. (EE101)</td>
+                  <td>38</td>
+                  <td>30</td>
+                  <td><strong>79%</strong></td>
+                  <td>
+                    <div class="attendance-bar-bg">
+                      <!-- Inline style represents the 79% width of the attendance bar -->
+                      <div class="attendance-bar-fill" style="width: 79%;"></div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Environmental Science (EV101)</td>
+                  <td>30</td>
+                  <td>28</td>
+                  <td><strong>93%</strong></td>
+                  <td>
+                    <div class="attendance-bar-bg">
+                      <!-- Inline style represents the 93% width of the attendance bar -->
+                      <div class="attendance-bar-fill" style="width: 93%;"></div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- SECTION 3: MARKS & EVALUATION              -->
+        <!-- ========================================== -->
+        <section id="marks" class="dashboard-section">
+          <div class="section-header">
+            <h2>Academic Marks</h2>
+            <p>Internal assessments (out of 40) and external finals (out of 60)</p>
+          </div>
+
+          <!-- Table Wrapper for responsive scrolling -->
+          <div class="table-wrapper">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Subject</th>
+                  <th>Internal Marks (40)</th>
+                  <th>External Marks (60)</th>
+                  <th>Total Marks (100)</th>
+                  <th>Grade</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Programming in C (CS101)</td>
+                  <td>38</td>
+                  <td>54</td>
+                  <td><strong>92</strong></td>
+                  <td><span class="badge grade-o">O (Outstanding)</span></td>
+                </tr>
+                <tr>
+                  <td>Mathematics - I (MA101)</td>
+                  <td>34</td>
+                  <td>51</td>
+                  <td><strong>85</strong></td>
+                  <td><span class="badge grade-aplus">A+ (Excellent)</span></td>
+                </tr>
+                <tr>
+                  <td>Engineering Physics (PH101)</td>
+                  <td>35</td>
+                  <td>49</td>
+                  <td><strong>84</strong></td>
+                  <td><span class="badge grade-aplus">A+ (Excellent)</span></td>
+                </tr>
+                <tr>
+                  <td>Basic Electrical Engg. (EE101)</td>
+                  <td>31</td>
+                  <td>45</td>
+                  <td><strong>76</strong></td>
+                  <td><span class="badge grade-a">A (Very Good)</span></td>
+                </tr>
+                <tr>
+                  <td>Environmental Science (EV101)</td>
+                  <td>37</td>
+                  <td>52</td>
+                  <td><strong>89</strong></td>
+                  <td><span class="badge grade-aplus">A+ (Excellent)</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- SECTION 4: WEEKLY TIMETABLE                -->
+        <!-- ========================================== -->
+        <section id="timetable" class="dashboard-section">
+          <div class="section-header">
+            <h2>Weekly Class Timetable</h2>
+            <p>Class schedule from Monday to Saturday across 5 periods</p>
+          </div>
+
+          <!-- Table Wrapper for responsive scrolling -->
+          <div class="table-wrapper">
+            <table class="data-table timetable-table">
+              <thead>
+                <tr>
+                  <th>Day</th>
+                  <th>Period 1<br><small>09:00 - 10:00</small></th>
+                  <th>Period 2<br><small>10:00 - 11:00</small></th>
+                  <th>Period 3<br><small>11:15 - 12:15</small></th>
+                  <th>Period 4<br><small>01:00 - 02:00</small></th>
+                  <th>Period 5<br><small>02:00 - 03:00</small></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Monday</strong></td>
+                  <td>Programming in C</td>
+                  <td>Mathematics - I</td>
+                  <td>Engineering Physics</td>
+                  <td>Physics Lab</td>
+                  <td>Physics Lab</td>
+                </tr>
+                <tr>
+                  <td><strong>Tuesday</strong></td>
+                  <td>Engineering Physics</td>
+                  <td>Basic Electrical</td>
+                  <td>Mathematics - I</td>
+                  <td>Programming in C</td>
+                  <td>Mentorship Session</td>
+                </tr>
+                <tr>
+                  <td><strong>Wednesday</strong></td>
+                  <td>Mathematics - I</td>
+                  <td>Programming in C</td>
+                  <td>Environmental Sci</td>
+                  <td>C Programming Lab</td>
+                  <td>C Programming Lab</td>
+                </tr>
+                <tr>
+                  <td><strong>Thursday</strong></td>
+                  <td>Basic Electrical</td>
+                  <td>Engineering Physics</td>
+                  <td>Mathematics - I</td>
+                  <td>Electrical Lab</td>
+                  <td>Electrical Lab</td>
+                </tr>
+                <tr>
+                  <td><strong>Friday</strong></td>
+                  <td>Programming in C</td>
+                  <td>Mathematics - I</td>
+                  <td>Basic Electrical</td>
+                  <td>Environmental Sci</td>
+                  <td>Sports / Library</td>
+                </tr>
+                <tr>
+                  <td><strong>Saturday</strong></td>
+                  <td>Web Development</td>
+                  <td>Programming in C</td>
+                  <td>Maths Tutorial</td>
+                  <td>Seminar / Club</td>
+                  <td>Self Study</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- SECTION 5: REGISTERED SUBJECTS             -->
+        <!-- ========================================== -->
+        <section id="subjects" class="dashboard-section">
+          <div class="section-header">
+            <h2>Enrolled Subjects &amp; Faculty</h2>
+            <p>Courses registered for B.Tech CSE Semester 1</p>
+          </div>
+
+          <!-- Subjects Container (Flexbox layout) -->
+          <div class="subjects-container">
+            <!-- Subject Card 1 -->
+            <div class="subject-card">
+              <div class="subject-card-header">
+                <span class="subject-badge">Core CSE</span>
+                <span class="subject-code">CS101</span>
+              </div>
+              <h3 class="subject-title">Programming for Problem Solving</h3>
+              <p class="subject-faculty">👨‍🏫 Faculty: <strong>Dr. Rajesh Kumar</strong></p>
+              <p class="subject-desc">Fundamentals of algorithms, C language syntax, pointers, and memory management.</p>
+            </div>
+
+            <!-- Subject Card 2 -->
+            <div class="subject-card">
+              <div class="subject-card-header">
+                <span class="subject-badge">Mathematics</span>
+                <span class="subject-code">MA101</span>
+              </div>
+              <h3 class="subject-title">Mathematics - I (Calculus)</h3>
+              <p class="subject-faculty">👩‍🏫 Faculty: <strong>Prof. Sneha Sharma</strong></p>
+              <p class="subject-desc">Differential calculus, matrices, eigenvalues, and multivariable functions.</p>
+            </div>
+
+            <!-- Subject Card 3 -->
+            <div class="subject-card">
+              <div class="subject-card-header">
+                <span class="subject-badge">Basic Science</span>
+                <span class="subject-code">PH101</span>
+              </div>
+              <h3 class="subject-title">Engineering Physics</h3>
+              <p class="subject-faculty">👨‍🏫 Faculty: <strong>Dr. Arvind Verma</strong></p>
+              <p class="subject-desc">Optics, quantum mechanics, lasers, and semiconductor physics applications.</p>
+            </div>
+
+            <!-- Subject Card 4 -->
+            <div class="subject-card">
+              <div class="subject-card-header">
+                <span class="subject-badge">Engineering</span>
+                <span class="subject-code">EE101</span>
+              </div>
+              <h3 class="subject-title">Basic Electrical Engineering</h3>
+              <p class="subject-faculty">👩‍🏫 Faculty: <strong>Prof. Neha Gupta</strong></p>
+              <p class="subject-desc">DC circuits, network theorems, AC fundamentals, and magnetic circuits.</p>
+            </div>
+
+            <!-- Subject Card 5 -->
+            <div class="subject-card">
+              <div class="subject-card-header">
+                <span class="subject-badge">Humanities</span>
+                <span class="subject-code">EV101</span>
+              </div>
+              <h3 class="subject-title">Environmental Science</h3>
+              <p class="subject-faculty">👨‍🏫 Faculty: <strong>Dr. Meenakshi Iyer</strong></p>
+              <p class="subject-desc">Ecology, sustainable energy, pollution control, and environmental policy.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- TWO COLUMN ROW: NOTIFICATIONS & ANNOUNCEMENTS -->
+        <!-- ========================================== -->
+        <div class="updates-row">
+
+          <!-- ========================================== -->
+          <!-- SECTION 6: NOTIFICATIONS (4 ITEMS)         -->
+          <!-- ========================================== -->
+          <section id="notifications" class="dashboard-section updates-column">
+            <div class="section-header">
+              <h2>Recent Notifications</h2>
+              <p>Updates and reminders for this week</p>
+            </div>
+
+            <div class="notifications-list">
+              <!-- Notification 1 -->
+              <div class="notification-item">
+                <span class="item-icon">📚</span>
+                <div class="item-content">
+                  <h4 class="item-title">Library Book Due Date</h4>
+                  <p class="item-desc">"Programming in ANSI C" must be returned or renewed by Nov 26.</p>
+                  <span class="item-time">2 hours ago</span>
+                </div>
+              </div>
+
+              <!-- Notification 2 -->
+              <div class="notification-item">
+                <span class="item-icon">💻</span>
+                <div class="item-content">
+                  <h4 class="item-title">Lab Assignment Submission</h4>
+                  <p class="item-desc">CS101 Lab Experiment 5 (Pointers) due date is tomorrow at 5:00 PM.</p>
+                  <span class="item-time">5 hours ago</span>
+                </div>
+              </div>
+
+              <!-- Notification 3 -->
+              <div class="notification-item">
+                <span class="item-icon">⚽</span>
+                <div class="item-content">
+                  <h4 class="item-title">Annual Sports Meet Registration</h4>
+                  <p class="item-desc">Inter-department cricket and badminton registrations are now open.</p>
+                  <span class="item-time">1 day ago</span>
+                </div>
+              </div>
+
+              <!-- Notification 4 -->
+              <div class="notification-item">
+                <span class="item-icon">💳</span>
+                <div class="item-content">
+                  <h4 class="item-title">Semester Fee Receipt Generated</h4>
+                  <p class="item-desc">Your Semester 1 fee payment receipt is ready for download in the portal.</p>
+                  <span class="item-time">3 days ago</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ========================================== -->
+          <!-- SECTION 7: ANNOUNCEMENTS (3 ITEMS)         -->
+          <!-- ========================================== -->
+          <section id="announcements" class="dashboard-section updates-column">
+            <div class="section-header">
+              <h2>Campus Announcements</h2>
+              <p>Official notices from Dean of Academics</p>
+            </div>
+
+            <div class="announcements-list">
+              <!-- Announcement 1 -->
+              <div class="announcement-item">
+                <div class="announcement-date">
+                  <span class="date-day">24</span>
+                  <span class="date-month">NOV</span>
+                </div>
+                <div class="announcement-content">
+                  <h4 class="item-title">Mid-Semester Exam Schedule Released</h4>
+                  <p class="item-desc">The official timetable for Mid-Sem 1 examinations has been published on the notice board.</p>
+                </div>
+              </div>
+
+              <!-- Announcement 2 -->
+              <div class="announcement-item">
+                <div class="announcement-date">
+                  <span class="date-day">20</span>
+                  <span class="date-month">NOV</span>
+                </div>
+                <div class="announcement-content">
+                  <h4 class="item-title">National Hackathon 2024 Launch</h4>
+                  <p class="item-desc">Registrations are invited from 1st and 2nd year students for Smart India Hackathon internal rounds.</p>
+                </div>
+              </div>
+
+              <!-- Announcement 3 -->
+              <div class="announcement-item">
+                <div class="announcement-date">
+                  <span class="date-day">15</span>
+                  <span class="date-month">NOV</span>
+                </div>
+                <div class="announcement-content">
+                  <h4 class="item-title">Guest Lecture on AI &amp; Web Development</h4>
+                  <p class="item-desc">Industry talk by alumni on modern web technologies in Auditorium B at 2:00 PM.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </div>
+
+      </main>
+
+      <!-- ========================================== -->
+      <!-- 4. FOOTER                                  -->
+      <!-- ========================================== -->
+      <footer class="footer">
+        <p>&copy; 2024 College Student Dashboard | Developed by <strong>Aarav Sharma (24CSE042)</strong></p>
+        <p class="footer-subtext">Built with HTML5 &amp; CSS3 Flexbox &bull; B.Tech CSE Web Development Activity Project</p>
+      </footer>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

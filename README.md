@@ -1,80 +1,54 @@
-# Online Examination Website
+# 🎓 College Student Dashboard
 
-A clean, responsive, single-page Online Examination portal built using semantic HTML5 and CSS3 (Flexbox). This project is designed for a first-year college Web Development Activity assignment.
+A clean, responsive, single-page College Student Dashboard built purely with **semantic HTML5** and **CSS3 (Flexbox)**. Designed as a Web Development Activity project for 1st-Year B.Tech Computer Science and Engineering (CSE).
 
----
-
-## 🔗 Live Demo
 Live Demo: <paste link here>
 
 ---
 
-## 📖 Description
-This project simulates an online examination interface for college students. It provides a structured test environment featuring an exam header, student information details, examination instructions, a countdown timer display, a 5-question multiple choice test, an interactive question navigator palette, and an exam submission section.
+## 📌 Project Overview
+
+This dashboard serves as a central academic portal for a college student, displaying personal details, attendance records, semester marks, weekly timetables, enrolled subjects with faculty information, real-time notifications, and official campus announcements.
 
 ---
 
 ## ✨ Features
-- **Semantic HTML5 Structure**: Uses proper semantic tags such as `<header>`, `<main>`, `<section>`, `<aside>`, `<form>`, `<fieldset>`, `<legend>`, and `<footer>`.
-- **Student Details Card**: Displays student name, roll number, branch, exam date, and duration.
-- **Rules & Instructions**: Clearly lists 6 exam guidelines.
-- **Timer Display**: Displays an exam countdown timer badge (`Time Left: 30:00`).
-  > **Note on Timer:** The timer is currently **display-only** using HTML and CSS. A functional countdown timer can be implemented in future iterations by integrating JavaScript.
-- **5 Multiple-Choice Questions (MCQs)**: Formatted with standard `<fieldset>`, `<legend>`, `<input type="radio">`, and `<label>` pairs. Only one radio option can be chosen per question.
-- **Question Navigation Palette**: A side panel listing buttons Q1 to Q5 built with Flexbox. Clicking any question number instantly scrolls the page to that specific question.
-- **Submission Area**: Features a review reminder notice and a distinct "Submit Exam" button wrapped in a `<form>`.
-- **Responsive Design**: Designed with CSS Flexbox and includes a `@media (max-width: 768px)` breakpoint to smoothly stack the question palette beneath the questions on mobile screens.
-- **Clean Academic Theme**: Styled with a professional color palette, hover effects, and comfortable padding/spacing.
+
+- **Responsive Two-Column Flexbox Layout**: Fixed sidebar for quick navigation and a fluid main dashboard panel.
+- **Student Profile Card**: Displays student name, roll number, department, current academic year, and college email with a personalized avatar badge.
+- **Attendance Tracker**: A structured table showcasing total classes held, attended, percentage, and CSS-based visual progress bars.
+- **Academic Marks & Grading**: Detailed breakdown of internal marks (out of 40), external finals (out of 60), total marks, and letter grades.
+- **Weekly Timetable (Mon–Sat)**: 6-day academic schedule mapped across 5 daily lecture/lab periods.
+- **Enrolled Subjects Grid**: Card-based display featuring course names, course codes, faculty names, and subject descriptions.
+- **Recent Notifications**: Quick-alert feed for pending assignments, library returns, and fee receipts.
+- **Campus Announcements**: Date-stamped official college circulars from the Dean of Academics.
+- **Mobile Responsive Design**: Clean `@media (max-width: 768px)` media query that stacks sidebar and content vertically with horizontally scrollable tables.
+- **Zero Dependencies**: 100% pure HTML and CSS — no JavaScript, frameworks, or external CSS libraries.
 
 ---
 
 ## 🛠️ Technologies Used
-- **HTML5**: For semantic page structure and form inputs.
-- **CSS3 (Flexbox only)**: For layout, styling, spacing, color scheme, and responsiveness.
-- **GitHub Pages**: For free static website hosting.
+
+- **HTML5**: Semantic tags (`<header>`, `<aside>`, `<nav>`, `<main>`, `<section>`, `<table>`, `<footer>`)
+- **CSS3**: Pure Flexbox (`display: flex`, `flex-direction`, `flex-wrap`, `gap`, `justify-content`, `align-items`), Box Model, Transitions, Media Queries
 
 ---
 
 ## 📁 Project Structure
+
 ```text
-online-exam-website/
-├── index.html   # Main webpage with all exam sections and semantic tags
-├── style.css    # External stylesheet (Reset, Layout, Components, Responsive)
-└── README.md    # Project documentation and deployment guide
+student-dashboard/
+│
+├── index.html     # Semantic markup and structure
+├── style.css      # Custom styling, Flexbox layout, and responsive design
+└── README.md      # Project documentation and submission details
 ```
 
 ---
 
-## 🚀 Step-by-Step GitHub Pages Deployment Guide
+## 🚀 How to Run Locally
 
-Follow these simple steps to deploy your website online for free:
-
-### Step 1: Create a GitHub Repository
-1. Log in to [GitHub](https://github.com).
-2. Click the **+** (plus) icon in the top-right corner and select **New repository**.
-3. Name your repository (e.g., `online-exam-website`).
-4. Ensure the repository visibility is set to **Public**.
-5. Do not check "Add a README file" if you already have this folder ready.
-6. Click **Create repository**.
-
-### Step 2: Upload Project Files
-1. On your newly created repository page, click the **uploading an existing file** link.
-2. Drag and drop all 3 files (`index.html`, `style.css`, and `README.md`) into the upload area.
-3. In the "Commit changes" box at the bottom, type: `Initial commit: Online exam portal`.
-4. Click **Commit changes**.
-
-### Step 3: Enable GitHub Pages
-1. In your GitHub repository, click on the **Settings** tab (gear icon at the top menu).
-2. On the left sidebar menu under the "Code and automation" section, click **Pages**.
-3. Under **Build and deployment**:
-   - **Source**: Select `Deploy from a branch`.
-   - **Branch**: Select `main` (or `master`) from the dropdown.
-   - **Folder**: Ensure `/ (root)` is selected.
-4. Click **Save**.
-
-### Step 4: Access and Test Your Live Site
-1. Wait 1 to 2 minutes for GitHub to build and publish your site.
-2. Refresh the **Pages** settings screen. You will see a banner:
-   > *"Your site is live at `https://<your-username>.github.io/<repository-name>/`"*
-3. Click the link to view your live website!
-4. Copy that URL and paste it into the `Live Demo: <paste link here>` section in your `README.md`.
+1. Clone or download this repository to your computer.
+2. Locate `index.html`.
+3. Double-click `index.html` to open it in any web browser (Google Chrome, Microsoft Edge, Firefox, etc.).
+4. No web server or installation required!

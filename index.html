@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mid-Term Examination - Web Technologies</title>
+    <!-- Linking external CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ==========================================
+         HEADER SECTION: Exam title and college info
+         ========================================== -->
+    <header class="exam-header">
+        <h1>Mid-Term Examination - Web Technologies</h1>
+        <p class="sub-header">Department of Computer Science &amp; Engineering | Academic Year 2024-2025</p>
+    </header>
+
+    <!-- Main Container wrapping the entire exam page -->
+    <main class="main-container">
+
+        <!-- ==========================================
+             STUDENT INFORMATION SECTION
+             ========================================== -->
+        <section class="student-info-section">
+            <h2>Student &amp; Exam Details</h2>
+            <div class="info-grid-flex">
+                <div class="info-item">
+                    <span class="info-label">Student Name:</span>
+                    <span class="info-value">Rahul Sharma</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Roll Number:</span>
+                    <span class="info-value">24CSE101</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Branch:</span>
+                    <span class="info-value">B.Tech - CSE</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Exam Date:</span>
+                    <span class="info-value">24 November 2024</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Duration:</span>
+                    <span class="info-value">30 Minutes</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             EXAM INSTRUCTIONS SECTION: 6 General Rules
+             ========================================== -->
+        <section class="instructions-section">
+            <h2>Exam Instructions</h2>
+            <ol class="instructions-list">
+                <li>All questions are compulsory and carry equal marks (1 mark each).</li>
+                <li>Read each question carefully before selecting your final answer.</li>
+                <li>Each question has four options. Only one option is correct.</li>
+                <li>Do not refresh or close the browser tab during the examination.</li>
+                <li>Use the question panel on the side to quickly navigate between questions.</li>
+                <li>Click the "Submit Exam" button at the bottom after reviewing all answers.</li>
+            </ol>
+        </section>
+
+        <!-- ==========================================
+             TIMER SECTION (Display Only)
+             Note: Timer is display-only. A JavaScript countdown can be added later.
+             ========================================== -->
+        <section class="timer-section">
+            <div class="timer-box">
+                <span class="timer-icon">&#9200;</span>
+                <span class="timer-text">Time Left: 30:00</span>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             EXAM FORM: Contains questions, side panel, and submit area
+             ========================================== -->
+        <form class="exam-form" action="#" method="post">
+
+            <!-- Flex container holding questions (left) and side panel (right) -->
+            <div class="exam-layout">
+
+                <!-- QUESTIONS AREA -->
+                <section class="questions-area">
+
+                    <!-- Question 1 -->
+                    <fieldset class="question-card" id="q1">
+                        <legend class="question-number">Question 1</legend>
+                        <p class="question-text">What does the acronym HTML stand for?</p>
+                        <div class="options-group">
+                            <div class="option-item">
+                                <input type="radio" id="q1-opt1" name="q1" value="A" required>
+                                <label for="q1-opt1">A) Hyper Text Markup Language</label>
+                            </div>
+                            <div class="option-item">
+                                <input type="radio" id="q1-opt2" name="q1" value="B">
+                                <label for="q1-opt2">B) High Tech Modern Language</label>
+                            </div>
+                            <div class="option-item">
+                                <input type="radio" id="q1-opt3" name="q1" value="C">
+                                <label for="q1-opt3">C) Hyperlink and Text Management Language</label>
+                            </div>
+                            <div class="option-item">
+                                <input type="radio" id="q1-opt4" name="q1" value="D">
+                                <label for="q1-opt4">D) Home Tool Markup Language</label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- Question 2 -->
+                    <fieldset class="question-card" id="q2">
+                        <legend class="question-number">Question 2</legend>
+                        <p class="question-text">Which HTML5 semantic tag should be used to define the main navigation links?</p>
+                        <div class="options-group">
+                            <div class="option-item">
+                                <input type="radio" id="q2-opt1" name="q2" value="A" required>
+                                <label for="q2-opt1">A) &lt;menu&gt;</label>
+                            </div>
+                            <div class="option-item">
+                                <input type="radio" id="q2-opt2" name="q2" value="B">
+                                <label for="q2-opt2">B) &lt;nav&gt;</label>
+                            </div>
+                            <div class="option-item">
+                                <input type="radio" id="q2-opt3" name="q2" value="C">
+                                <label for="q2-opt3">C) &lt;navigation&gt;</label>
+                            </div>
+                            <div class="option-item">
+                                <input type="radio" id="q2-opt4" name="q2" value="D">
+                                <label for="q2-opt4">D) &lt;links&gt;</label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- Question 3 -->
+                    <fieldset class="question-card" id="q3">
+                        <legend class="question-number">Question 3</legend>
+                        <p class="question-text">In CSS Flexbox, which property defines the main axis direction of items?</p>
+                        <div class="options-group">
+                            <div class="option-item">
+                                <input type="radio" id="q3-opt1" name="q3" value="A" required>
+                                <label for="q3-opt1">A) justify-content</label>
+                            </div>
+                            <div class="option-item">
+                                <input type="radio" id="q3-opt2" name="q3" value="B">
+                                <label for="q3-opt2">B) align-items</label>
+                            </div>
+                            <div class="option-item">
+                                <input type="radio" id="q3-opt3" name="q3" value="C">
+                                <label for="q3-opt3">C) flex-direction</label>
+                            </div>
+                            <div class="option-item">
+                                <input type="radio" id="q3-opt4" name="q3" value="D">
+                                <label for="q3-opt4">D) flex-wrap</label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- Question 4 -->
+                    <fieldset class="question-card" id="q4">
+                        <legend class="question-number">Question 4</legend>
+                        <p class="question-text">Which CSS property is used to create space INSIDE an element's border?</p>
+                        <div class="options-group">
+                            <div class="option-item">
+                                <input type="radio" id="q4-opt1" name="q4" value="A" required>
+                                <label for="q4-opt1">A) margin</label>
+                            </div>
+                            <div class="option-item">
+                                <input type="radio" id="q4-opt2" name="q4" value="B">
+                                <label for="q4-opt2">B) spacing</label>
+                            </div>
+                            <div class="option-item">
+                                <input type="radio" id="q4-opt3" name="q4" value="C">
+                                <label for="q4-opt3">C) border-spacing</label>
+                            </div>
+                            <div class="option-item">
+                                <input type="radio" id="q4-opt4" name="q4" value="D">
+                                <label for="q4-opt4">D) padding</label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- Question 5 -->
+                    <fieldset class="question-card" id="q5">
+                        <legend class="question-number">Question 5</legend>
+                        <p class="question-text">Which HTML tag is used to group related input fields together with a caption?</p>
+                        <div class="options-group">
+                            <div class="option-item">
+                                <input type="radio" id="q5-opt1" name="q5" value="A" required>
+                                <label for="q5-opt1">A) &lt;fieldset&gt; and &lt;legend&gt;</label>
+                            </div>
+                            <div class="option-item">
+                                <input type="radio" id="q5-opt2" name="q5" value="B">
+                                <label for="q5-opt2">B) &lt;group&gt; and &lt;title&gt;</label>
+                            </div>
+                            <div class="option-item">
+                                <input type="radio" id="q5-opt3" name="q5" value="C">
+                                <label for="q5-opt3">C) &lt;section&gt; and &lt;header&gt;</label>
+                            </div>
+                            <div class="option-item">
+                                <input type="radio" id="q5-opt4" name="q5" value="D">
+                                <label for="q5-opt4">D) &lt;form&gt; and &lt;caption&gt;</label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                </section>
+
+                <!-- ==========================================
+                     QUESTION-NUMBER PANEL (Aside Navigation)
+                     ========================================== -->
+                <aside class="palette-aside">
+                    <div class="palette-card">
+                        <h3>Question Palette</h3>
+                        <p class="palette-subtitle">Click to jump to a question:</p>
+                        <div class="palette-buttons">
+                            <a href="#q1" class="palette-btn">Q1</a>
+                            <a href="#q2" class="palette-btn">Q2</a>
+                            <a href="#q3" class="palette-btn">Q3</a>
+                            <a href="#q4" class="palette-btn">Q4</a>
+                            <a href="#q5" class="palette-btn">Q5</a>
+                        </div>
+                        <div class="palette-info">
+                            <p>Total Questions: <strong>5</strong></p>
+                            <p>Status: In Progress</p>
+                        </div>
+                    </div>
+                </aside>
+
+            </div>
+
+            <!-- ==========================================
+                 SUBMISSION AREA
+                 ========================================== -->
+            <section class="submission-section">
+                <div class="review-message-box">
+                    <p>&#9888;&#65039; <strong>Important:</strong> Please review your answers before submitting.</p>
+                </div>
+                <button type="submit" class="submit-btn">Submit Exam</button>
+            </section>
+
+        </form>
+
+    </main>
+
+    <!-- ==========================================
+         FOOTER SECTION
+         ========================================== -->
+    <footer class="exam-footer">
+        <p>&copy; 2024 College of Engineering &amp; Technology | Online Examination Portal</p>
+        <p class="footer-note">All rights reserved. Best viewed in modern web browsers.</p>
+    </footer>
+
+</body>
+</html>
